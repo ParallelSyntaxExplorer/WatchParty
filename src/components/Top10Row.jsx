@@ -87,10 +87,10 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .row-scrollbox {
                     display: flex;
-                    gap: 60px;
+                    gap: 120px;
                     overflow-x: scroll;
                     scroll-behavior: smooth;
-                    padding: 40px 0 40px 80px;
+                    padding: 40px 0 40px 150px;
                 }
 
                 .row-scrollbox::-webkit-scrollbar { display: none; }
@@ -105,11 +105,11 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .rank-number {
                     position: absolute;
-                    left: -65px;
+                    left: -90px;
                     top: 50%;
                     transform: translateY(-50%);
                     font-size: 13rem;
-                    font-weight: 900;
+                    font-weight: 800;
                     line-height: 0.8;
                     color: black;
                     -webkit-text-stroke: 2px #e50914;
@@ -117,12 +117,13 @@ const Top10Row = ({ title, movies, onSelect }) => {
                     opacity: 1;
                     transition: all 0.3s ease;
                     pointer-events: none;
+                    letter-spacing: -10px;
                 }
 
                 .top10-card:hover .rank-number {
                     color: #e50914;
                     -webkit-text-stroke: 0px;
-                    transform: translateY(-50%) scale(1.05);
+                    transform: translateY(-50%) scale(1.1);
                 }
 
                 .top10-card .card-poster {
@@ -149,10 +150,15 @@ const Top10Row = ({ title, movies, onSelect }) => {
                 .row-arrow.left { left: 0; }
                 .row-arrow.right { right: 0; }
 
+                @media (max-width: 1024px) {
+                    .row-scrollbox { gap: 80px; padding-left: 100px; }
+                    .rank-number { font-size: 10rem; left: -70px; }
+                }
+
                 @media (max-width: 768px) {
-                    .row-scrollbox { gap: 40px; padding-left: 50px; }
+                    .row-scrollbox { gap: 60px; padding-left: 70px; }
                     .top10-card { flex: 0 0 140px; height: 210px; }
-                    .rank-number { font-size: 8rem; left: -40px; }
+                    .rank-number { font-size: 8rem; left: -50px; }
                     .row-title { font-size: 2rem; }
                 }
             `}</style>
