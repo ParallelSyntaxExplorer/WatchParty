@@ -103,16 +103,9 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
   }
 
   const isInWatchlist = watchlist.some(m => m.id === content.id);
-  const [source, setSource] = useState('vidsrc.xyz');
-
-  const sources = [
-    { id: 'vidsrc.xyz', name: 'Server 1 (HD)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.xyz/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.xyz/embed/movie?tmdb=${i}` },
-    { id: 'vidsrc.me', name: 'Server 2 (Fast)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.me/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.me/embed/movie?tmdb=${i}` },
-    { id: 'vidsrc.to', name: 'Server 3 (Stable)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.to/embed/tv/${i}/${s}/${e}` : `https://vidsrc.to/embed/movie/${i}` },
-  ];
-
-  const currentSource = sources.find(s => s.id === source);
-  const embedUrl = currentSource.url(type, id, season, episode);
+  const embedUrl = type === 'tv'
+    ? `https://www.vidking.net/embed/tv/${id}/${season}/${episode}`
+    : `https://www.vidking.net/embed/movie/${id}`;
 
   const handleEpisodeClick = (epNum) => {
     setEpisode(epNum);
@@ -127,22 +120,9 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
       transition={{ duration: 0.5 }}
     >
       <div className="player-section" style={{ position: 'relative' }}>
-        {/* Source Selector Overlay */}
-        <div className="source-selector">
-          {sources.map(src => (
-            <button
-              key={src.id}
-              className={`source-btn ${source === src.id ? 'active' : ''}`}
-              onClick={() => setSource(src.id)}
-            >
-              {src.name}
-            </button>
-          ))}
-        </div>
-
         <iframe
           src={embedUrl}
-          key={`${source}-${id}-${season}-${episode}`}
+          key={embedUrl}
           title="WatchParty Player"
           allowFullScreen
           frameBorder="0"
@@ -273,41 +253,6 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
           width: 100%;
           height: 100%;
           border: none;
-        }
-
-        .source-selector {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-
-        .source-btn {
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .source-btn:hover { background: rgba(255,255,255,0.1); color: white; }
-        .source-btn.active {
-            background: #e50914;
-            color: white;
-            border-color: #e50914;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
-        }
-
-        @media (max-width: 600px) {
-            .source-selector { bottom: 10px; left: 10px; gap: 5px; }
-            .source-btn { padding: 6px 10px; font-size: 0.7rem; }
         }
 
         .content-info-section {
