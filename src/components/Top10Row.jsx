@@ -87,17 +87,16 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .row-scrollbox {
                     display: flex;
-                    gap: 130px;
                     overflow-x: scroll;
                     scroll-behavior: smooth;
-                    padding: 40px 0 60px 140px;
+                    padding: 40px 0 60px 100px;
                 }
 
                 .row-scrollbox::-webkit-scrollbar { display: none; }
 
                 .top10-card {
                     display: flex;
-                    align-items: center;
+                    align-items: baseline;
                     flex: 0 0 auto;
                     position: relative;
                     cursor: pointer;
@@ -105,38 +104,41 @@ const Top10Row = ({ title, movies, onSelect }) => {
                 }
 
                 .top10-card .card-poster {
-                    width: 180px;
-                    height: 270px;
+                    width: 185px;
+                    height: 275px;
                     object-fit: cover;
                     border-radius: 4px;
                     box-shadow: 0 15px 35px rgba(0,0,0,0.7);
                     transition: 0.3s;
+                    margin-right: 50px;
                     z-index: 2;
                 }
 
                 .rank-number {
-                    margin-right: -40px;
+                    margin-right: -30px;
                     font-size: 9rem;
                     font-weight: 900;
                     line-height: 1;
                     color: black;
                     -webkit-text-stroke: 2px #e50914;
-                    z-index: 1;
+                    z-index: 10;
                     opacity: 1;
                     transition: all 0.3s ease;
                     pointer-events: none;
                     font-family: 'Outfit', sans-serif;
+                    position: relative;
+                    z-index: 1;
                 }
 
                 .top10-card:hover .rank-number {
                     color: #e50914;
                     -webkit-text-stroke: 0px;
-                    transform: scale(1.1);
-                    z-index: 3;
+                    transform: scale(1.05);
                 }
 
                 .top10-card:hover .card-poster {
-                    transform: scale(1.05);
+                    transform: scale(1.02);
+                    box-shadow: 0 0 0 2px rgba(255,255,255,0.2), 0 20px 40px rgba(0,0,0,0.8);
                 }
 
                 .row-arrow {
@@ -146,7 +148,7 @@ const Top10Row = ({ title, movies, onSelect }) => {
                     padding: 10px;
                     border-radius: 50%;
                     cursor: pointer;
-                    z-index: 10;
+                    z-index: 100;
                     opacity: 0;
                     transition: 0.3s;
                 }
@@ -156,15 +158,15 @@ const Top10Row = ({ title, movies, onSelect }) => {
                 .row-arrow.right { right: 0; }
 
                 @media (max-width: 1024px) {
-                    .row-scrollbox { gap: 100px; padding-left: 100px; }
-                    .rank-number { font-size: 7rem; margin-right: -30px; }
-                    .top10-card .card-poster { width: 140px; height: 210px; }
+                    .row-scrollbox { padding-left: 80px; }
+                    .rank-number { font-size: 8rem; margin-right: -25px; }
+                    .top10-card .card-poster { width: 140px; height: 210px; margin-right: 40px; }
                 }
 
                 @media (max-width: 768px) {
-                    .row-scrollbox { gap: 80px; padding-left: 80px; }
-                    .rank-number { font-size: 6rem; margin-right: -25px; }
-                    .top10-card .card-poster { width: 120px; height: 180px; }
+                    .row-scrollbox { padding-left: 60px; }
+                    .rank-number { font-size: 6rem; margin-right: -20px; }
+                    .top10-card .card-poster { width: 120px; height: 180px; margin-right: 30px; }
                     .row-title { font-size: 2rem; }
                 }
             `}</style>
