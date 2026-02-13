@@ -148,7 +148,6 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
           frameBorder="0"
           scrolling="no"
           className="watch-iframe"
-          sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals"
         />
       </div>
 
