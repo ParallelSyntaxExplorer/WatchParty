@@ -219,8 +219,7 @@ const Home = ({ watchlist, history }) => {
             <div className="footer-branding">
                 <h2>WatchParty</h2>
                 <p>
-                    This site does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
-                    contact@watchparty.gd
+                    This site does not store any files on our server, we only linked to the media which is hosted on 3rd party.
                 </p>
             </div>
         </div>
