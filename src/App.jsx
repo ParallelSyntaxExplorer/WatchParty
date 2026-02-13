@@ -169,8 +169,8 @@ function App() {
           />
         </Routes>
 
-        <footer className="app-footer" style={{ padding: '60px', textAlign: 'center', opacity: 0.5 }}>
-          <p>&copy; 2026 WatchParty Premium Streaming. All metadata provided by TMDB.</p>
+        <footer className="app-footer" style={{ padding: '60px', textAlign: 'center', opacity: 0.8, fontSize: '0.9rem', fontWeight: '700', letterSpacing: '2px', color: '#666' }}>
+          <p>MADE BY AAQIB</p>
         </footer>
 
         <AnimatePresence>
