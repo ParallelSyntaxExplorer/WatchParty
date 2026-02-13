@@ -104,8 +104,8 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
 
   const isInWatchlist = watchlist.some(m => m.id === content.id);
   const embedUrl = type === 'tv'
-    ? `https://www.vidking.net/embed/tv/${id}/${season}/${episode}`
-    : `https://www.vidking.net/embed/movie/${id}`;
+    ? `https://vidsrc.me/embed/tv?tmdb=${id}&season=${season}&episode=${episode}`
+    : `https://vidsrc.me/embed/movie?tmdb=${id}`;
 
 
   const handleEpisodeClick = (epNum) => {
@@ -123,12 +123,13 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
       <div className="player-section">
         <iframe
           src={embedUrl}
-          key={embedUrl}
+          key={`${id}-${season}-${episode}`}
           title="WatchParty Player"
           allowFullScreen
           frameBorder="0"
           scrolling="no"
           className="watch-iframe"
+          sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
         />
       </div>
 
