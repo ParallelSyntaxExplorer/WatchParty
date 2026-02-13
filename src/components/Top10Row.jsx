@@ -87,10 +87,10 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .row-scrollbox {
                     display: flex;
-                    gap: 40px;
+                    gap: 60px;
                     overflow-x: scroll;
                     scroll-behavior: smooth;
-                    padding: 20px 0 20px 40px;
+                    padding: 20px 0 30px 60px;
                 }
 
                 .row-scrollbox::-webkit-scrollbar { display: none; }
@@ -104,15 +104,16 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .rank-number {
                     position: absolute;
-                    left: -40px;
-                    bottom: -15px;
-                    font-size: 10rem;
-                    font-weight: 900;
-                    line-height: 1;
+                    left: -50px;
+                    bottom: -20px;
+                    font-size: 11rem;
+                    font-weight: 800;
+                    line-height: 0.8;
                     color: black;
                     -webkit-text-stroke: 2px #e50914;
                     z-index: -1;
-                    opacity: 0.8;
+                    opacity: 1;
+                    transform: translateX(10%);
                 }
 
                 .top10-card .card-poster {
@@ -120,7 +121,7 @@ const Top10Row = ({ title, movies, onSelect }) => {
                     height: 100%;
                     object-fit: cover;
                     border-radius: 4px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
                 }
 
                 .row-arrow {
@@ -140,8 +141,9 @@ const Top10Row = ({ title, movies, onSelect }) => {
                 .row-arrow.right { right: 0; }
 
                 @media (max-width: 768px) {
+                    .row-scrollbox { gap: 40px; padding-left: 40px; }
                     .top10-card { flex: 0 0 140px; height: 210px; }
-                    .rank-number { font-size: 6rem; left: -25px; }
+                    .rank-number { font-size: 7rem; left: -35px; bottom: -10px; }
                     .row-title { font-size: 2rem; }
                 }
             `}</style>
