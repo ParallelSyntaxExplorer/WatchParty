@@ -103,11 +103,11 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
   }
 
   const isInWatchlist = watchlist.some(m => m.id === content.id);
-  const [source, setSource] = useState('vidsrc.me');
+  const [source, setSource] = useState('vidsrc.xyz');
 
   const sources = [
-    { id: 'vidsrc.me', name: 'Server 1 (Fast)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.me/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.me/embed/movie?tmdb=${i}` },
-    { id: 'vidsrc.xyz', name: 'Server 2 (HD)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.xyz/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.xyz/embed/movie?tmdb=${i}` },
+    { id: 'vidsrc.xyz', name: 'Server 1 (HD)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.xyz/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.xyz/embed/movie?tmdb=${i}` },
+    { id: 'vidsrc.me', name: 'Server 2 (Fast)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.me/embed/tv?tmdb=${i}&season=${s}&episode=${e}` : `https://vidsrc.me/embed/movie?tmdb=${i}` },
     { id: 'vidsrc.to', name: 'Server 3 (Stable)', url: (t, i, s, e) => t === 'tv' ? `https://vidsrc.to/embed/tv/${i}/${s}/${e}` : `https://vidsrc.to/embed/movie/${i}` },
   ];
 
@@ -148,7 +148,7 @@ const Watch = ({ toggleWatchlist, watchlist, onWatch, history = [] }) => {
           frameBorder="0"
           scrolling="no"
           className="watch-iframe"
-          sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+          sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals"
         />
       </div>
 
