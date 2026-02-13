@@ -87,10 +87,10 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .row-scrollbox {
                     display: flex;
-                    gap: 120px;
+                    gap: 160px;
                     overflow-x: scroll;
                     scroll-behavior: smooth;
-                    padding: 40px 0 40px 150px;
+                    padding: 40px 0 40px 200px;
                 }
 
                 .row-scrollbox::-webkit-scrollbar { display: none; }
@@ -105,10 +105,10 @@ const Top10Row = ({ title, movies, onSelect }) => {
 
                 .rank-number {
                     position: absolute;
-                    left: -90px;
+                    left: -130px;
                     top: 50%;
                     transform: translateY(-50%);
-                    font-size: 13rem;
+                    font-size: 14rem;
                     font-weight: 800;
                     line-height: 0.8;
                     color: black;
@@ -151,14 +151,14 @@ const Top10Row = ({ title, movies, onSelect }) => {
                 .row-arrow.right { right: 0; }
 
                 @media (max-width: 1024px) {
-                    .row-scrollbox { gap: 80px; padding-left: 100px; }
-                    .rank-number { font-size: 10rem; left: -70px; }
+                    .row-scrollbox { gap: 100px; padding-left: 150px; }
+                    .rank-number { font-size: 11rem; left: -100px; }
                 }
 
                 @media (max-width: 768px) {
-                    .row-scrollbox { gap: 60px; padding-left: 70px; }
+                    .row-scrollbox { gap: 80px; padding-left: 100px; }
                     .top10-card { flex: 0 0 140px; height: 210px; }
-                    .rank-number { font-size: 8rem; left: -50px; }
+                    .rank-number { font-size: 9rem; left: -70px; }
                     .row-title { font-size: 2rem; }
                 }
             `}</style>
